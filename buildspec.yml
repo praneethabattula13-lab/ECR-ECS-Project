@@ -13,14 +13,15 @@ phases:
     commands:
       - echo "Building static HTML site"
       - mkdir -p output
-      # Copy all files to output directory
+      - echo "Copying all files to output directory"
       - cp -r * output/ || true
-      # Remove buildspec from artifacts
+      - echo "Removing buildspec.yml from output"
       - rm -f output/buildspec.yml
 
   post_build:
     commands:
-      - echo "Build complete - $(ls -la output/)" 
+      - echo "Build complete"
+      - ls -la output
       
 artifacts:
   files:
